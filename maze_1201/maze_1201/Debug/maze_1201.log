@@ -1,0 +1,3 @@
+﻿  test.c
+c:\users\lenovo\source\repos\maze_1201\maze_1201\test.c(22): warning C4244: “函数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+  maze_1201.vcxproj -> C:\Users\lenovo\source\repos\maze_1201\Debug\maze_1201.exe
