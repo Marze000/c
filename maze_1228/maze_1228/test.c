@@ -127,7 +127,10 @@ char CheckWinner()
 	{
 		return 'h';
 	}
-	return ' ';
+	else
+	{
+		return ' ';
+	}
 }
 
 void Init()
@@ -164,6 +167,7 @@ int main()
 			break;
 		}
 	}
+	Print();
 	if (winner == 'x')
 	{
 		printf("Ã¿¿œ ¶”Æ¡À!\n");
