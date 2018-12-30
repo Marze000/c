@@ -2,6 +2,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<time.h>
+#include<windows.h>
 
 #define ROW 3//define语句后面不可以加分号
 #define COL 3
@@ -83,88 +84,25 @@ void ComputerMove_1()
 
 void ComputerMove_2()
 {
-	int row = 1;
-	int col = 1;
+
+	printf("电脑思考中");
+	Sleep(600);
+	printf(".");
+	Sleep(600);
+	printf(".");
+	Sleep(600);
+	printf(".\n电脑落子：\n");
+	srand((unsigned int)time(0));
 	while (1)
 	{
-		if (g_broad[row][col] == ' ')
+		int row = rand() % ROW;
+		int col = rand() % COL;
+		if (g_broad[row][col] != ' ')
 		{
-			g_broad[row][col] = 'o';
-			break;
+			continue;
 		}
-	}
-
-	
-
-
-	for (row = 0; row < ROW; ++row) //判断每一行上是否有两个相同的棋子
-	{
-		if ((g_broad[row][0] == g_broad[row][1]) &&
-			g_broad[row][2] == ' ' && g_broad[row][0]!=' ')
-		{
-			g_broad[row][2] = 'o';
-			break;
-		}
-		if ((g_broad[row][0] == g_broad[row][2]) &&	
-			g_broad[row][1] == ' '&& g_broad[row][0]!=' ')
-		{
-			g_broad[row][1] = 'o';
-			break;
-		}
-		if ((g_broad[row][2] == g_broad[row][1]) && 
-			g_broad[row][0] == ' '&& g_broad[row][2]!=' ')
-		{
-			g_broad[row][0] = 'o';
-			break;
-		}
-	}
-	for (col = 0; col < COL; col++) //判断每一列上是否有两个相同的棋子
-	{
-		if ((g_broad[0][col] == g_broad[1][col]) &&	
-			g_broad[2][col] == ' '&& g_broad[0][col]!=' ')
-		{
-			g_broad[2][col] = 'o';
-			break;
-		}
-		if ((g_broad[0][col] == g_broad[2][col]) &&	
-			g_broad[1][col] == ' '&& g_broad[0][col]!=' ')
-		{
-			g_broad[1][col] = 'o';
-			break;
-		}
-		if ((g_broad[2][col] == g_broad[1][col]) && 
-			g_broad[0][col] == ' '&& g_broad[2][col]!=' ')
-		{
-			g_broad[0][col] = 'o';
-			break;
-		}
-	}
-	//判断主对角线上是否有两个相同的棋子
-	while (1)
-	{
-		if ((g_broad[0][0] == g_broad[1][1]) &&	g_broad[2][2] == ' ')
-		{
-			g_broad[2][2] = 'o';
-			break;
-		}
-		if ((g_broad[2][2] == g_broad[1][1]) &&	g_broad[0][0] == ' ') //做对角线
-		{
-			g_broad[0][0] = 'o';
-			break;
-		}
-
-		//判断副对角线上是否有两个相同的棋子
-	
-		if ((g_broad[0][2] == g_broad[1][1]) &&	g_broad[2][0] == ' ') //做对角线
-		{
-			g_broad[2][0] = 'o';
-			break;
-		}
-		if ((g_broad[2][0] == g_broad[1][1]) &&	(g_broad[0][2] == ' ')) //做对角线
-		{
-			g_broad[0][2] = 'o';
-			break;
-		}
+		g_broad[row][col] = 'o';
+		break;
 	}
 }
 int IsFull()
