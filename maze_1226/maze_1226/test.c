@@ -85,16 +85,58 @@ int Fib(int n)
 	return sum;
 }
 
+char* reverse_string(char* p)
+{
+	int n = 0;
+	char tmp;
+	char* q;
+	q = p;
+	while (*p != 0)
+	{
+		n++;
+		p++;
+	}
+	if (n > 1)
+	{
+		tmp = q[0];
+		q[0] = q[n - 1];
+		q[n - 1] = '\0';
+		reverse_string(q + 1);
+		q[n - 1] = tmp;
+	}
+	return q;
+}
+
+void nixu(char* arr)
+{
+	int left = 0;
+	int right = strlen(arr) - 1;
+	while (left <= right)
+	{
+		char tmp = arr[left];
+		arr[left] = arr[right];
+		arr[right] = tmp;
+		--right;
+		++left;
+	}
+}
 
 //二叉树，先序，中序，后续（非递归和递归的实现）递归比循环简单
 
 
 //通常情况下，使用循环的效率（时间快，空间（内存）小）普遍高于递归
 
+
 int main()
 {
-
-
+	char arr[] = "ma ze zhen de hen nu li";
+	printf("%s\n", arr);
+	nixu(arr);	
+	printf("%s\n",arr);
+	//printf("put some words :\n");
+	//char p[] = "ma ze zhen de he nu li";	
+	//printf("原字符串为：%s\n", p);
+	//printf("逆字符串为：%s\n", reverse_string(p));
 
 	//printf("%lld", Fib(100));
 
