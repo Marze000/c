@@ -19,7 +19,7 @@ int strlen(char arr[])
 	while (arr[i] != '\0')
 	{
 		++i;
-	}
+		}
 	return i;
 }
 
@@ -80,6 +80,7 @@ int Fib(int n)
 		sum = last1 + last2;
 		//更新last1,last2
 		last2 = last1;
+		last2 = last1;
 		last1 = sum;
 	}
 	return sum;
@@ -129,10 +130,12 @@ void nixu(char* arr)
 
 int main()
 {
-	char arr[] = "ma ze zhen de hen nu li";
-	printf("%s\n", arr);
-	nixu(arr);	
-	printf("%s\n",arr);
+
+
+	//char arr[] = "ma ze zhen de hen nu li";
+	//printf("%s\n", arr);
+	//nixu(arr);	
+	//printf("%s\n",arr);
 	//printf("put some words :\n");
 	//char p[] = "ma ze zhen de he nu li";	
 	//printf("原字符串为：%s\n", p);
