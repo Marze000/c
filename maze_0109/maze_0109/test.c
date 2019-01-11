@@ -96,136 +96,102 @@ int main()
 	//	printf("%d\n", arr[i]);
 	//}
 	//int i = 0;
-	//int a[] = { 1,2,3,4 };
-	////sizeof判断元素所占的空间的字节
-	////printf("%d\n", sizeof(a));//16
-	////a是一个数组名，1个元素4个字节
-	//
-	////printf("%d\n", a[i]);
-	//printf("%d\n", sizeof(a + 0));//数组名a+0之后会被隐式转换位指针,//32位系统下，为4
-	//
-	//printf("%d\n", sizeof(*a));//a转换为指针（隐式转换为首元素的指针），解引用得到的元素是1为int型
-	//
-	//printf("%d\n", sizeof(a + 1));//8 因为在64位操作系统下
-
-	//printf("%d\n", sizeof(a[1]));//a[1]代表的元素是2int型，所占字节为4
-
-	//printf("%d\n", sizeof(&a[1]));//得到2之后，取地址之后为一个指针，在64位操作系统是8
-
-	//printf("%d\n", sizeof(&a));//数组名取地址是一个指针，称数组指针，在32位系统是4
-
-	//printf("%d\n", sizeof(*&a));//16 先取地址得到的是数组指针，在解引用返回了数组。
-
-	//printf("%d\n", sizeof(&*a));//8 先解引用得到的是1 int型，然后取地址得到一个指针。
-
-	//printf("%d\n", sizeof(&a + 1));//8 a取地址位数组指针，数组指针加一为也为指针。
-
-	//printf("%d\n", sizeof(&a[0]+1));//8 
-	//只要计算指针，在32位系统下就为4.
-
-	//char arr[] = { 'a','b','c','d','e','f' };
-
-	//printf("%d\n",sizeof(arr));//6  字符数组不是字符串，没有‘\0’
-
-	//printf("%d\n", sizeof(arr+0));//8 arr本来是一个数组名，加一变为指针。在64位操作系统是8
-
-	//printf("%d\n", sizeof(*arr));//1 *arr取到的是a,a占一个字节 
-
-	//printf("%d\n", sizeof(arr[1]));// 1 
-
-	//printf("%d\n", sizeof(&arr));//8 数组名取地址得到一个数组指针，64位
-
-	//printf("%d\n", sizeof(&arr+1));//8 取到地址后为数组指针，数组指针加一仍然为指针
-
-	//printf("%d\n", sizeof(&arr[0]+1));//8 []得到了一个字符，字符取地址为字符指针，加一还是指针。
 
 
-	//printf("%d\n", strlen(arr));//未定义行为， UB
 
-	//printf("%d\n", strlen(arr+0));//未定义行为， UB 
+	int a[] = { 1,2,3,4 };
+	//sizeof判断元素所占的空间的字节
+	//printf("%d\n", sizeof(a));//16
+	//a是一个数组名，1个元素4个字节
+	printf("%d\n", sizeof(a + 0));//数组名a+0之后会被隐式转换位指针,//32位系统下，为4
+	printf("%d\n", sizeof(*a));//a转换为指针（隐式转换为首元素的指针），解引用得到的元素是1为int型
+	printf("%d\n", sizeof(a + 1));//8 因为在64位操作系统下
+	printf("%d\n", sizeof(a[1]));//a[1]代表的元素是2int型，所占字节为4
+	printf("%d\n", sizeof(&a[1]));//得到2之后，取地址之后为一个指针，在64位操作系统是8
+	printf("%d\n", sizeof(&a));//数组名取地址是一个指针，称数组指针，在32位系统是4
+	printf("%d\n", sizeof(*&a));//16 先取地址得到的是数组指针，在解引用返回了数组。
+	printf("%d\n", sizeof(&*a));//8 先解引用得到的是1 int型，然后取地址得到一个指针。
+	printf("%d\n", sizeof(&a + 1));//8 a取地址位数组指针，数组指针加一为也为指针。
+	printf("%d\n", sizeof(&a[0]+1));//8 只要计算指针，在32位系统下就为4.
 
-	//printf("%d\n", strlen(*arr));//*arr得到的是一个字符，strlen对字符求长度，闪退。
+
+	char arr[] = { 'a','b','c','d','e','f' };
+	printf("%d\n",sizeof(arr));//6  字符数组不是字符串，没有‘\0’
+	printf("%d\n", sizeof(arr+0));//8 arr本来是一个数组名，加一变为指针。在64位操作系统是8
+	printf("%d\n", sizeof(*arr));//1 *arr取到的是a,a占一个字节 
+	printf("%d\n", sizeof(arr[1]));// 1 
+	printf("%d\n", sizeof(&arr));//8 数组名取地址得到一个数组指针，64位
+	printf("%d\n", sizeof(&arr+1));//8 取到地址后为数组指针，数组指针加一仍然为指针
+	printf("%d\n", sizeof(&arr[0]+1));//8 []得到了一个字符，字符取地址为字符指针，加一还是指针。
+	printf("%d\n", strlen(arr));//未定义行为， UB
+	printf("%d\n", strlen(arr+0));//未定义行为， UB 
+	printf("%d\n", strlen(*arr));//*arr得到的是一个字符，strlen对字符求长度，闪退。
 	//strlen要求的参数是char*（指针），而*arr的类型是char（字符）,参数不同。
-
-	//printf("%d\n", strlen(&arr));//未定义行为，&arr为数组指针和char*类型也不匹配
-
-	//printf("%d\n", strlen(&arr+1));//同上
-
-	//printf("%d\n", strlen(&arr[0]+1));// 未定义行为
+	printf("%d\n", strlen(&arr));//未定义行为，&arr为数组指针和char*类型也不匹配
+	printf("%d\n", strlen(&arr+1));//同上
+	printf("%d\n", strlen(&arr[0]+1));// 未定义行为
 	//字符数组如果不是字符串不要使用srtlen
 
-	//char arr[] = "abcdef";
-	//printf("%d\n", sizeof(arr));//7 字符串后面还有一个‘\0’，也算一个元素
-
-	//printf("%d\n", sizeof(arr+0));//8 arr加0之后变为指针，在32为操作系统是4
-
-	//printf("%d\n", sizeof(*arr));// 1
-
-	//printf("%d\n", sizeof(arr[1]));// 1
-
-	//printf("%d\n", sizeof(&arr));// 数组指针   8
-
-	//printf("%d\n", sizeof(&arr+1));//同上  得到的是字符指针
-
-	//printf("%d\n", sizeof(&arr[0]+1));//8  得到的类型是char*
-
-	
-	//printf("%d\n", strlen(arr));//6 strlen 算的是字符串的长度，而sizeof算的是字节数
-
-	//printf("%d\n", strlen(arr+0));//arr数组转换为char*  +0或不加0都一样
-
-	//printf("%d\n", strlen(*arr));//取到的是字符a,字符a的类型是char.未定义行为
-
-	//printf("%d\n", strlen(arr[1]));//同上，取出的是一个字符b
-
-	//printf("%d\n", strlen(&arr));//6 取地址得到一个数组指针，数组和char*不一样，
+	char arr[] = "abcdef";
+	printf("%d\n", sizeof(arr));//7 字符串后面还有一个‘\0’，也算一个元素
+	printf("%d\n", sizeof(arr+0));//8 arr加0之后变为指针，在32为操作系统是4
+	printf("%d\n", sizeof(*arr));// 1
+	printf("%d\n", sizeof(arr[1]));// 1
+	printf("%d\n", sizeof(&arr));// 数组指针   8
+	printf("%d\n", sizeof(&arr+1));//同上  得到的是字符指针
+	printf("%d\n", sizeof(&arr[0]+1));//8  得到的类型是char*	
+	printf("%d\n", strlen(arr));//6 strlen 算的是字符串的长度，而sizeof算的是字节数
+	printf("%d\n", strlen(arr+0));//arr数组转换为char*  +0或不加0都一样
+	printf("%d\n", strlen(*arr));//取到的是字符a,字符a的类型是char.未定义行为
+	printf("%d\n", strlen(arr[1]));//同上，取出的是一个字符b
+	printf("%d\n", strlen(&arr));//6 取地址得到一个数组指针，数组和char*不一样，
 	//但数组指针得到数值和首元素一样，地址相同。
-
-	//printf("%d\n", strlen(&arr+1));//数组指针加一跳过整个数组，指向最后面的元素的下一位，越界。
-
-	//printf("%d\n", strlen(&arr[0]+1));//5  arr[0]首元素取地址得到的是char*
+	printf("%d\n", strlen(&arr+1));//数组指针加一跳过整个数组，指向最后面的元素的下一位，越界。
+	printf("%d\n", strlen(&arr[0]+1));//5  arr[0]首元素取地址得到的是char*
 	//加一还是char*，但指针指向了b
-
-	//printf("%d\n", strlen(&arr[1]+1));//4  arr[1]取到的是b，char*型，再加一指针指向c,剩余4个字符
+	printf("%d\n", strlen(&arr[1]+1));//4  arr[1]取到的是b，char*型，再加一指针指向c,剩余4个字符
 
 
 	char* arr = "abcdef";
-	//printf("%d", sizeof(arr));//8 arr代表的是指针
+	printf("%d", sizeof(arr));//8 arr代表的是指针
+	printf("%d", sizeof(arr+0));//8 （64位系统）
+	printf("%d", sizeof(*arr));//1 得到的是a字符，占一个字节
+	printf("%d", sizeof(arr[1]));//1
+	printf("%d", sizeof(&arr));//8 取地址得到的是一个二级指针
+	printf("%d", sizeof(&arr+1));// 8 同上
+	printf("%d", sizeof(&arr[0]+1));//8  首先a[0]得到一个a，取地址得到char*，再加一
+	printf("%d", strlen(arr));// 6
+	printf("%d", strlen(arr+1));//5 arr是char*,加一跳过一个字节
+	printf("%d", strlen(*arr));// 取到的是a,类型是char,strlen要求的是char*
+	printf("%d", strlen(arr[1]));//取到的是b,同上，未定义行为
+	printf("%d", strlen(&arr));//二级指针，得到的是char**,未定义行为。
+	printf("%d", strlen(&arr+1));// 未定义行为，同上，取到的是一个二级指针
+	printf("%d", strlen(&arr[0]+1));//5 ，&a[0]取到的是a的地址，加一是b的地址，
+	//从b到‘\0’,一共数五个字符。
 
-	//printf("%d", sizeof(arr+0));//8 （64位系统）
-
-	//printf("%d", sizeof(*arr));//1 得到的是a字符，占一个字节
-
-	//printf("%d", sizeof(arr[1]));//1
-
-	//printf("%d", sizeof(&arr));//8 取地址得到的是一个二级指针
-
-	//printf("%d", sizeof(&arr+1));// 8 同上
-
-	//printf("%d", sizeof(&arr[0]+1));//8  首先a[0]得到一个a，取地址得到char*，再加一
-
-	//printf("%d", strlen(arr));// 6
-
-	//printf("%d", strlen(arr+1));//5 arr是char*,加一跳过一个字节
-
-	//printf("%d", strlen(*arr));// 取到的是a,类型是char,strlen要求的是char*
-
-	//printf("%d", strlen(arr[1]));//取到的是b,同上，未定义行为
-
-	//printf("%d", strlen(&arr));//二级指针，得到的是char**
-
-
-
-
-
-
-
-
-
-
-
-
-
+	
+	int arr[3][4] = { 0 };
+	//{0,0,0,0}
+	//{0,0,0,0}
+	//{0,0,0,0}
+	//三个元素的一维数组，数组的长度为4
+	
+	printf("%d", sizeof(arr));//48
+	printf("%d", sizeof(arr[0][0]));//4
+	printf("%d", sizeof(arr[0]));//16  arr[0]代表的是第一行的数组,四个元素，一个元素4个字节
+	printf("%d", sizeof(arr[0]+1));// 8  加一后变为指针，在64位操作系统
+	printf("%d", sizeof(*(arr[0] + 1))); // 4
+	//*（p+1)=>p[1]   则*（arr[0]+1）=> arr[0][1]
+	
+	printf("%d", sizeof(arr + 1));//二维数组+1也是一个指针
+	printf("%d", sizeof(*(arr + 1)));//16  *(arr+1)=>arr[1]这个是一个长度为4的数组，
+	//对于int数组来说，隐式转换为int*
+	//对于int[4]数组来说，隐式转换为int(*)[4]//数组指针
+	printf("%d", sizeof(&arr[0] + 1));//数组指针，结果为8
+	printf("%d", sizeof(*(&arr[0] + 1)));//16 ，数组指针解引用后变为数组（有四个元素）
+	printf("%d", sizeof(*arr));//16 arr代表的是首元素，长度为4的数组
+	printf("%d", sizeof(arr[3]));//16  数组并没有越界，因为前面是sizeof并没有访问内存。
+	//越界指的是：内存访问越界；sizeof是操作符不是函数，它在编译过程中求值，
 
 	system("pause");
 	return 0;
